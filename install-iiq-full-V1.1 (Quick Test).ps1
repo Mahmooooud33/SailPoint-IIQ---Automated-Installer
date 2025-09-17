@@ -159,14 +159,14 @@ Start-Process "http://localhost:8080"
 # ------------------------------
 # 3. Install SQL Server
 # ------------------------------
-Write-Output ">>> Installing SQL Server..."
-$SqlInstaller = Join-Path $InstallerPath $SqlExe
-if (!(Test-Path $SqlInstaller)) { 
-    Write-Error "SQL Server installer missing!"; 
-    exit 1 
-}
+# Write-Output ">>> Installing SQL Server..."
+# $SqlInstaller = Join-Path $InstallerPath $SqlExe
+# if (!(Test-Path $SqlInstaller)) { 
+#     Write-Error "SQL Server installer missing!"; 
+#     exit 1 
+# }
 
-Start-Process -FilePath $SqlInstaller -ArgumentList "/qs /x:$InstallerPath\SQLSetup" -Wait
+# Start-Process -FilePath $SqlInstaller -ArgumentList "/qs /x:$InstallerPath\SQLSetup" -Wait
 
 # ------------------------------
 # 3.0 Ensure SQLCMD is available (MOVED UP)
@@ -371,14 +371,14 @@ Start-Sleep -Seconds 10
 # ------------------------------
 # 4. Install SSMS
 # ------------------------------
-Write-Output ">>> Installing SQL Server Management Studio..."
-$SsmsInstaller = Join-Path $InstallerPath $SsmsExe
-if (!(Test-Path $SsmsInstaller)) { 
-    Write-Warning "SSMS installer missing! Skipping..." 
-}
-else {
-    Start-Process -FilePath $SsmsInstaller -ArgumentList "/install /quiet /norestart" -Wait
-}
+# Write-Output ">>> Installing SQL Server Management Studio..."
+# $SsmsInstaller = Join-Path $InstallerPath $SsmsExe
+# if (!(Test-Path $SsmsInstaller)) { 
+#     Write-Warning "SSMS installer missing! Skipping..." 
+# }
+# else {
+#     Start-Process -FilePath $SsmsInstaller -ArgumentList "/install /quiet /norestart" -Wait
+# }
 
 # ------------------------------
 # 4.1 Ensure SQLCMD is in PATH
