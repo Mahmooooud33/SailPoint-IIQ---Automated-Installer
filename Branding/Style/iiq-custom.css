@@ -1,0 +1,380 @@
+/*
+ * SailPoint IdentityIQ 8.5 Custom ExtJS Styles
+ * Controls styling for (older) ExtJS pages in the desktop UI
+ * Optimized for maintainability and reusability
+ * Version: 2.0
+ */
+
+/* ========================================
+   CSS Custom Properties (Variables)
+   ======================================== */
+:root {
+  /* Primary Colors */
+  --primary-color: #24A669;
+  --primary-hover: #308C61;
+  
+  /* Secondary Colors */
+  --secondary-color: #595959;
+  --secondary-hover: #404040;
+  
+  /* Neutral Colors */
+  --gray-color: #808080;
+  --white: #ffffff;
+  --disabled-gray: gray;
+  
+  /* Gradient Definitions */
+  --primary-gradient: linear-gradient(top, var(--primary-hover), var(--primary-color));
+  --secondary-gradient: linear-gradient(top, var(--secondary-hover), var(--secondary-color));
+}
+
+/* ========================================
+   Main Pages Background
+   Note: Background is neutral colored - recommend leaving as default
+   Uncomment below if custom background is needed
+   ======================================== */
+/*
+body, 
+body.x-border-layout-ct,  
+.borderCell {
+  background: var(--gray-color);
+}
+*/
+
+/* ========================================
+   Page Titles & Headers
+   ======================================== */
+
+/* Main page titles */
+#bodyDivTitle h1, 
+.bodyDivTitle h1, 
+#bodyDivTitle { 
+  color: var(--secondary-color);
+}
+
+/* Headers within pages (e.g. Account Correlation, Activity Data Source, etc.) */
+.spContentTitle, 
+.sectionHeader, 
+.subSectionHeader { 
+  color: var(--secondary-color);
+}
+
+/* Object Type headers (e.g. panel heading for "object type: account")
+   Note: Background color is gray - keep in mind when setting text color
+   Recommend leaving header background for these panels as default */
+.x-panel-header-text {
+  color: var(--secondary-color) !important;
+}
+
+/* Text in Dashboard Widgets */
+.progressText {
+  color: var(--secondary-color);
+}
+
+/* ========================================
+   Tables with Headers
+   ======================================== */
+
+/* Tables with blue banner header like in My Work -> Access Requests details
+   Uses gradient background with custom color scheme */
+.spBlueTable th {  
+  background-image: none;
+  background-color: var(--primary-color);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, var(--secondary-hover)), color-stop(100%, var(--secondary-color)));
+  background-image: -webkit-linear-gradient(top, var(--secondary-hover), var(--secondary-color));
+  background-image: -moz-linear-gradient(top, var(--secondary-hover), var(--secondary-color));
+  background-image: -o-linear-gradient(top, var(--secondary-hover), var(--secondary-color));
+  background-image: var(--primary-gradient);
+}
+
+/* ========================================
+   Links and Interactive Text
+   ======================================== */
+
+/* Standard links */
+a, 
+a:link, 
+a:visited, 
+a:active { 
+  color: var(--primary-color);
+}
+
+a:hover, 
+a:focus {
+  color: var(--primary-hover);
+}
+
+/* Fake links (text that looks and behaves like links) */
+.fakeLink, 
+.unboldFakeLink, 
+.smallFakeLink, 
+.fakeLink .x-grid-cell-inner { 
+  color: var(--secondary-color);
+}
+
+/* Certification Wizard step names */
+li.wizardStep:hover { 
+  color: var(--secondary-hover);
+}
+
+/* ========================================
+   Menus and Navigation
+   ======================================== */
+
+/* New Certification, New Policy, etc. menus */
+.menuBtnClass {
+  background-color: var(--primary-color);
+  background-image: none;
+  border-color: var(--primary-hover);
+}
+
+/* Menu item hover states */
+.x-menu-list-item a:hover, 
+.x-menu-list-item a:active {
+  background-color: var(--primary-hover) !important;
+}
+
+.main-submenu .x-menu-item-active, 
+.main-submenu .x-menu-item-active a {
+  background-color: var(--primary-hover) !important;
+}
+
+/* Menu tabs within Task, Cert, etc. pages */
+.x-tab-active button {
+  color: var(--secondary-color) !important;
+}
+
+/* Application Definition tabs/submenus */
+div.appPageExtTabs .x-tab-active {
+  background-color: var(--primary-color) !important;
+  background-image: none !important;
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+
+/* Primary Buttons (colored buttons with white text)
+   Must use !important to override border, background-color, background-image
+   because original file uses !important as well */
+
+/* Default state */
+div.primaryBtn, 
+input.primaryBtn, 
+.primaryBtn { 
+  background-image: none !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+/* Hover and focus states */
+div.primaryBtn:hover, 
+input.primaryBtn:hover, 
+.primaryBtn:hover,
+div.primaryBtn:focus, 
+input.primaryBtn:focus, 
+.primaryBtn:focus { 
+  background-image: none !important;
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Primary button text color */
+.primaryBtn .x-btn-center .x-btn-inner { 
+  color: var(--white) !important;
+}
+
+/* Small default buttons */
+.x-btn-default-small {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  background-image: none;
+}
+
+.x-btn-default-small:hover {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-color);
+  background-image: none;
+}
+
+/* Identity Entitlement Toggle Pressed State */
+.x-btn.x-btn-identityEntitlementTogglePressed .x-btn-center .x-btn-inner,
+.x-btn.x-btn-identityEntitlementTogglePressed { 
+  background-color: var(--secondary-color) !important;
+}
+
+/* Secondary Buttons (gray/white with colored text) */
+div.secondaryBtn, 
+input.secondaryBtn, 
+button.secondaryBtn,  
+div.secondaryBtn:hover, 
+input.secondaryBtn:hover, 
+button.secondaryBtn:hover { 
+  color: var(--secondary-color);
+}
+
+.secondaryBtn .x-btn-inner { 
+  color: var(--secondary-color) !important;
+}
+
+/* ========================================
+   Toolbar Buttons
+   ======================================== */
+
+/* Default toolbar buttons (e.g. Advanced Search buttons) */
+.x-btn-default-toolbar-small-noicon, 
+.x-btn-default-toolbar-medium-noicon,
+.x-btn-default-toolbar-small-noicon .x-btn-center .x-btn-inner,
+.x-btn-default-toolbar-medium-noicon .x-btn-center .x-btn-inner { 
+  color: var(--secondary-color);
+}
+
+/* Default toolbar button hover state */
+.x-btn-default-toolbar-small-noicon.x-btn-default-toolbar-small-over,
+.x-btn-default-toolbar-medium-noicon.x-btn-default-toolbar-medium-over { 
+  color: var(--secondary-hover);
+}
+
+/* ========================================
+   Disabled States
+   ======================================== */
+
+/* Disabled buttons - makes text easier to see on light gray backgrounds */
+.x-btn-disabled .x-btn-center .x-btn-inner,
+.x-btn-default-toolbar-small-disabled .x-btn-inner {
+  color: var(--disabled-gray) !important;
+}
+
+/* ========================================
+   Utility Classes for ExtJS Components
+   ======================================== */
+
+/* Primary color utilities */
+.extjs-primary-bg {
+  background-color: var(--primary-color) !important;
+  background-image: none !important;
+}
+
+.extjs-primary-text {
+  color: var(--primary-color) !important;
+}
+
+.extjs-primary-border {
+  border-color: var(--primary-color) !important;
+}
+
+/* Secondary color utilities */
+.extjs-secondary-bg {
+  background-color: var(--secondary-color) !important;
+  background-image: none !important;
+}
+
+.extjs-secondary-text {
+  color: var(--secondary-color) !important;
+}
+
+.extjs-secondary-border {
+  border-color: var(--secondary-color) !important;
+}
+
+/* Hover state utilities */
+.extjs-hover-primary:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.extjs-hover-secondary:hover {
+  background-color: var(--secondary-hover) !important;
+  border-color: var(--secondary-color) !important;
+}
+
+/* Gradient utilities */
+.extjs-primary-gradient {
+  background-image: var(--primary-gradient) !important;
+}
+
+.extjs-secondary-gradient {
+  background-image: var(--secondary-gradient) !important;
+}
+
+/* ========================================
+   Component-Specific Overrides
+   ======================================== */
+
+/* Grid components */
+.x-grid-cell-inner {
+  color: inherit;
+}
+
+/* Panel components */
+.x-panel-body {
+  color: var(--secondary-color);
+}
+
+/* Form components */
+.x-form-item-label {
+  color: var(--secondary-color);
+}
+
+/* Tab components */
+.x-tab-bar {
+  border-color: var(--gray-color);
+}
+
+.x-tab-active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-hover);
+}
+
+/* Window components */
+.x-window-header {
+  background-color: var(--primary-color);
+  border-color: var(--primary-hover);
+}
+
+.x-window-header-text {
+  color: var(--white);
+}
+
+/* ========================================
+   Accessibility Improvements
+   ======================================== */
+
+/* Focus indicators for keyboard navigation */
+.x-btn:focus,
+.x-form-field:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #1a7a4a;
+    --primary-hover: #0f5a35;
+    --secondary-color: #2a2a2a;
+    --secondary-hover: #1a1a1a;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+  /* Ensure text is visible in print */
+  .x-btn-center .x-btn-inner,
+  .x-panel-header-text,
+  .spContentTitle,
+  .sectionHeader,
+  .subSectionHeader {
+    color: #000000 !important;
+  }
+  
+  /* Remove background colors for print */
+  .primaryBtn,
+  .x-btn-default-small,
+  .menuBtnClass,
+  .spBlueTable th {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+}

@@ -1,0 +1,1200 @@
+/*
+ * SailPoint IdentityIQ 8.5 Custom UI Styles - PROPERLY OPTIMIZED VERSION
+ * Compatible with Angular 18 and Bootstrap 4
+ * Version: 2.0 - All original functionality preserved with improved organization
+ */
+
+/* ========================================
+   CSS Custom Properties (Variables)
+   ======================================== */
+:root {
+  /* Primary Colors */
+  --primary-color: #24A669;
+  --primary-hover: #308C61;
+  --primary-light: rgba(36, 166, 105, 0.25);
+  --primary-strong: rgba(36, 166, 105, 0.5);
+  
+  /* Secondary Colors */
+  --secondary-color: #595959;
+  --secondary-hover: #404040;
+  
+  /* Neutral Colors */
+  --gray-color: #808080;
+  --light-gray: #f5f5f5;
+  --light-gray-alt: #d8dde5;
+  --dark-gray: #333333;
+  --medium-gray: #717171;
+  --white: #ffffff;
+  --light-blue: #f9fafc;
+  
+  /* Focus Ring */
+  --focus-ring: 0 0 0 0.2rem var(--primary-light);
+  --focus-ring-strong: 0 0 0 0.2rem var(--primary-strong);
+}
+
+/* ========================================
+   Global Focus Styles
+   ======================================== */
+.btn:focus,
+.btn:active:focus,
+.btn:active,
+.btn:focus-visible {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--focus-ring-strong) !important;
+  outline: none !important;
+}
+
+input:focus,
+input:focus-visible,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--focus-ring-strong) !important;
+  outline: none !important;
+}
+
+/* ========================================
+   Common UI Components - Button System
+   ======================================== */
+
+/* Primary Buttons (white text on colored background) */    
+.btn-primary { 
+  background-color: var(--secondary-color) !important; 
+  border-color: var(--secondary-color) !important;
+  color: var(--white) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--secondary-hover) !important; 
+  border-color: var(--secondary-hover) !important;
+}
+ 
+/* Loading Data message - this is seen in panels on refresh */
+.alert-info {
+  color: var(--secondary-color) !important;
+}
+ 
+/* Focused or hovered links */
+a:hover, a:focus {
+  color: var(--secondary-hover) !important;
+}
+ 
+/* Disabled primary button */
+.btn-info.disabled, .btn-info[disabled] {
+  background-color: var(--secondary-color) !important;
+}
+
+/* btn-info buttons (used throughout SailPoint) */
+.btn-info, .btn-info.active, .btn-info:active {
+  background-color: var(--secondary-color) !important; 
+  border: var(--secondary-color) !important;
+}
+ 
+.btn-info:hover, .btn-info:focus {
+  background-color: var(--secondary-hover) !important;
+}
+
+/* Link buttons */
+.btn-link:hover,
+.btn-link:focus {
+  color: var(--secondary-color) !important;
+  text-decoration: underline !important;
+  background-color: transparent !important;
+}
+
+/* ========================================
+   Login Page (mobile and desktop)
+   ======================================== */
+ 
+/* Header bar around and line under logo on login page */
+.header {
+  min-height: 50px !important;
+}  
+
+.header .nav-brand img {
+  max-height: 40px !important;
+}
+ 
+/* Center box on login page */
+.login-welcome {
+  color: var(--secondary-color) !important;
+}
+ 
+.form-control:focus {
+  border-color: var(--secondary-color);
+}
+ 
+#loginForm\:loginButton {
+  background-color: var(--secondary-color) !important; 
+  border-color: var(--secondary-color) !important;
+}
+
+#loginForm\:loginButton.btn-info:hover,
+#loginForm\:loginButton.btn-info:focus {
+  background-color: var(--secondary-hover) !important;
+}
+ 
+/* All optional links on Login page (Forgot password, Unlock Account, New User Registration) */
+#loginForm a.text-info {
+  color: var(--secondary-color) !important;
+}
+
+#loginForm a.text-info:hover,
+#loginForm a.text-info:focus {
+  color: var(--secondary-hover) !important;
+}
+ 
+.fa-blue {
+  color: var(--secondary-color) !important;
+}
+ 
+/* Use if login page center logo is a square image */
+.img-circle {
+  border-radius: 0% !important;
+}
+
+/* Fix login page input focus styles */
+.panel-body .form-control.input-lg:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--focus-ring) !important;
+  outline: none !important;
+}
+
+/* ========================================
+   Desktop Only Angular Pages
+   ======================================== */
+ 
+/* Size the topbar logo images */
+.topbar img {
+  max-width: 130px !important;
+}
+
+/* Make header height match image height */
+header.topbar {
+  padding: 0 !important; 
+}
+
+header.topbar .row {
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center;        
+  display: flex;             
+}
+ 
+/* Main Menu header bar in Desktop body pages */
+.bg-primary { 
+  background-color: var(--primary-color) !important;
+}
+ 
+/* Desktop Main Menu Bar options and sub-options when selected/open */
+.bg-primary .nav .open > a {
+  background-color: var(--primary-hover) !important;
+}
+
+.dropdown-menu .menuitem:hover {
+  background-color: var(--primary-color) !important;
+}
+
+.nav > .dropdown > .dropdown-toggle:focus:not(:hover) {
+  background-color: var(--primary-hover) !important; 
+  color: var(--white) !important;
+}
+
+.bg-primary .nav li > ul.dropdown-menu > li > a {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary .nav li > a:focus, .bg-primary .nav li > a:hover {
+  background-color: var(--primary-hover) !important; 
+  color: var(--white) !important;
+}
+
+/* Default dropdown menu links */
+.bg-primary .dropdown-menu > li > a.menuitem {
+  color: var(--secondary-color) !important;
+  background-color: var(--white) !important;
+}
+
+/* Hover / focus */
+.bg-primary .dropdown-menu > li > a.menuitem:hover,
+.bg-primary .dropdown-menu > li > a.menuitem:focus {
+  color: var(--white) !important;
+  background-color: var(--primary-color) !important;
+}
+
+/* Active / selected */
+.bg-primary .dropdown-menu > li.active > a.menuitem,
+.bg-primary .dropdown-menu > li.active > a.menuitem:hover,
+.bg-primary .dropdown-menu > li.active > a.menuitem:focus {
+  color: var(--white) !important;
+  background-color: var(--primary-hover) !important;
+}
+
+/* Force text white when dropdown item is hovered */
+#dropdown-hoveredItem li.dropdown-item:hover a,
+#dropdown-hoveredItem li.dropdown-item:focus a {
+  color: var(--white) !important;
+}
+
+/* Just in case the <span> is also styled */
+#dropdown-hoveredItem li.dropdown-item:hover a span,
+#dropdown-hoveredItem li.dropdown-item:focus a span {
+  color: var(--white) !important;
+}
+ 
+/* Quicklink Panel List Button in Desktop main menu bar*/
+#quicklinkButton:hover:not(.collapsed),
+#quicklinkButton:focus:not(.collapsed),
+#quicklinkButton:not(.collapsed) {
+  background-color: var(--primary-hover) !important;
+}
+ 
+/* Quicklink Panel */
+.bg-primary.lt,
+#quicklinkPanel .panel-group .panel .panel-heading,
+#quicklinkPanel .panel-group .panel .panel-body {
+  background-color: var(--primary-color) !important;
+}
+
+#quicklinkPanel .panel-group .panel .panel-body a:focus,
+#quicklinkPanel .panel-group .panel .panel-body a:hover {
+  background-color: var(--primary-hover) !important;
+}
+ 
+/* Desktop Home Page */
+.card-title, .card-arrow-icon {
+  color: var(--secondary-color);
+}
+ 
+.quicklink-card-link .panel:hover,
+.quicklink-card-link .panel:focus,
+.quicklink-card-link:hover .panel,
+.home-edit-card-link:hover .panel,
+.quicklink-card-link:focus .panel,
+.home-edit-card-link:focus .panel,
+.quicklink-card-link a:hover .panel,
+.home-edit-card-link a:hover .panel,
+.quicklink-card-link a:focus .panel,
+.home-edit-card-link a:focus .panel {
+  border-color: var(--secondary-color);
+  background: var(--secondary-color);
+  color: var(--white);
+}
+ 
+/* Drop-down menu on violation work items Widget header */
+.text-info {
+  color: var(--secondary-color) !important;
+}
+
+.dropdown > .dropdown-toggle:focus:not(:hover) { 
+  background-color: var(--light-blue) !important;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus { 
+  background-color: var(--secondary-color) !important;
+}
+ 
+/* Widget list hovers */
+a.list-group-item.ng-scope:hover, a.list-group-item.ng-scope:focus {
+  background-color: var(--secondary-color) !important;
+}
+ 
+/* Edit Home page */
+.home-edit-card .panel-heading {
+  color: var(--secondary-color) !important;
+}
+
+.home-edit-card-link a .card-title {
+  color: var(--secondary-color) !important;
+}
+ 
+/* Add Card checkboxes */
+sp-checkbox button.checkbox-btn:hover,
+sp-checkbox button.checkbox-btn + label:hover,
+sp-checkbox button.checkbox-btn:active,
+sp-checkbox button.checkbox-btn + label:active {
+  color: var(--dark-gray) !important;
+}
+
+/* ========================================
+   Access Request Pages (mobile and desktop)
+   ======================================== */
+
+/* Access Request Progress Bar (Select Users, Manage Access, Review) */
+.btn-group-progress > .btn-table-cell > button {
+  color: var(--secondary-color) !important;
+}
+
+.btn-group-progress > .btn-table-cell > button.progress-active, 
+.btn-group-progress > .btn-table-cell > button:hover {
+  background-color: var(--secondary-color) !important; 
+  color: var(--white) !important;
+}
+
+.btn-group-progress > .btn-table-cell > button.progress-active:before, 
+.btn-group-progress > .btn-table-cell > button:hover:before {
+  border-left-color: var(--secondary-color) !important;
+}
+
+.btn-group-progress > .btn-table-cell > button.enabled {
+  color: var(--secondary-color) !important;
+}
+
+.access .btn-link {
+  color: var(--secondary-color) !important;
+}
+ 
+/* Badge on Review tab of Manage User Access page (mobile and desktop) */
+.badge.bg-info {
+  background-color: var(--secondary-color) !important;
+}
+ 
+.btn-progress:hover .badge.bg-info, 
+.btn-progress:focus .badge.bg-info, 
+.btn-progress:active .badge.bg-info,
+.btn-progress.progress-active:not(:focus) .badge.bg-info {
+  background-color: var(--white) !important; 
+  color: var(--secondary-color) !important;
+}
+ 
+/* Sub-menu on Manage Access page (Add access/Remove access) */
+.btn-group.sub-nav .btn.active,
+.btn-group.sub-nav .btn:focus { 
+  color: var(--secondary-color) !important;
+}
+ 
+/* Page navigation within access request pages */
+.pagination > li > a { 
+  color: var(--secondary-color) !important;
+}
+
+.pagination > li > a:hover { 
+  color: var(--secondary-hover) !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus {
+  background-color: var(--secondary-color) !important;  
+  border-color: var(--secondary-color) !important;
+}
+
+.pagination > .active > a:hover,
+.pagination > .active > a:focus:hover {
+  background-color: var(--secondary-hover) !important; 
+  border-color: var(--secondary-color) !important;
+}
+
+/* ========================================
+   Edit Identity, Accounts, Change Password page
+   ======================================== */
+
+/* Button on Identity Cards */
+.identity-card .panel-footer .btn-info {
+  background-color: var(--secondary-color) !important;
+}
+
+.identity-card .panel-footer .btn-info:hover {
+  background-color: var(--secondary-hover) !important;
+}
+ 
+/* Edit Identity, Accounts, Change Password page left menu */
+.identity .sidebar .list-group li a:hover {
+  color: var(--secondary-hover) !important;
+}
+
+.identity .sidebar .list-group-item.active:hover a, 
+.list-group-item.active:focus a {
+  color: var(--white) !important;
+}
+
+.identity .sidebar .list-group-item.active {
+  background-color: var(--secondary-color) !important; 
+  border-color: var(--secondary-color) !important;
+}
+ 
+/* Password application count badge */
+.identity .identity-details-container .panel-heading .label-info-solid {
+  background-color: var(--secondary-color) !important;
+}
+ 
+/* Forwarding User pick list */
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li.active > a,
+.dropdown-menu > li.active > a:hover,
+.dropdown-menu > li.active > a:focus {
+  background-color: var(--secondary-color) !important;
+}
+ 
+/* Role hierarchy (modal box content in role details) */
+a.angular-ui-tree-node-content,
+a.angular-ui-tree-node-content.angular-ui-tree-node-selected {
+  color: var(--primary-color) !important;
+}
+
+a.angular-ui-tree-node-content:hover {
+  color: var(--primary-hover) !important;
+}
+ 
+/* Manage Passwords checkbox */
+button.checkbox-btn:focus, button.checkbox-btn:hover {
+  color: var(--secondary-color) !important;
+}
+
+/* ========================================
+   Violation Work Items Page
+   ======================================== */
+.decision-page .decision-page-tabs > li.active > button {
+  color: var(--secondary-color) !important;
+}
+
+.decision-page .decision-page-tabs > li.active .label {
+  background-color: var(--secondary-color) !important;
+}
+
+.decision-page .decision-page-tabs > li > button:hover {
+  color: var(--secondary-color) !important;
+}
+
+/* ========================================
+   Gear Menu
+   ======================================== */
+
+/* Global Settings menu page hover over/click options */
+a.list-group-item:focus, a.list-group-item:hover {
+  color: var(--secondary-hover) !important;
+}
+ 
+/* Admin Console Headers */
+.header .nav-tabs li > a:hover {
+  color: var(--secondary-hover) !important;
+}
+
+.header .nav-tabs li.active > a:hover {
+  color: var(--medium-gray) !important;
+}
+
+.header > .nav-tabs > li > a {
+  color: var(--secondary-color) !important;
+}
+ 
+.panel-heading .nav-tabs > li > a {
+  color: var(--medium-gray) !important;
+}
+
+.panel-heading .nav-tabs > li.active > a,
+.panel-heading .nav-tabs > li.active {
+  color: var(--secondary-color) !important;
+}
+
+.panel-heading .nav-tabs > li > a:hover,
+.panel-heading .nav-tabs > li.active > a:hover,
+.panel-heading .nav-tabs > li.active > a:focus {
+  color: var(--secondary-hover) !important;
+}
+ 
+/* Quicklink Populations */
+/* List of QL Populations */
+#qlpEditorDiv .selectableGrid .x-grid-row-selected.x-grid-row-focused .x-grid-cell { 
+  background-color: var(--secondary-color) !important;
+}
+ 
+/* Section headers on Configuration tab */
+#qlpEditorDiv .spTable caption .m-l-xs {
+  color: var(--secondary-color) !important;
+}
+
+/* ========================================
+   Mobile Pages
+   ======================================== */
+ 
+/* Buttons in header bar (Home, Exit) */
+a.btn-mobile {
+  color: var(--primary-color) !important;
+}
+
+a.btn-mobile:hover, a.btn-mobile:focus {
+  color: var(--primary-hover) !important;
+}
+ 
+/* Mobile Home Page menu options */
+.mobile-quick-links .card-title {
+  color: var(--secondary-color) !important;
+}
+
+.mobile-quick-links .quick-links-btn {
+  border-color: var(--secondary-color) !important; 
+  color: var(--secondary-color) !important;
+}
+
+.mobile-quick-links .card-title:hover,
+.mobile-quick-links .card-title:focus {
+  color: var(--secondary-hover) !important;
+}
+
+.mobile-quick-links .quick-links-btn:hover,
+.mobile-quick-links .quick-links-btn:focus {
+  border-color: var(--secondary-color) !important; 
+  background-color: var(--secondary-hover) !important; 
+  color: var(--white) !important;
+}
+ 
+/* Dropdowns in Desktop main menu viewed in narrow browser window
+   require this to make text visible by setting background white
+   media query limits effect only to narrow browsers
+   (lt or eq to 767 pixels = tablets and phones)*/
+@media (max-width: 767px) {
+   .bg-primary .nav .open .dropdown-menu {
+     background-color: var(--white) !important;
+   }
+}
+
+/* ========================================
+   Modal Dialog Boxes (use primary color for these
+   to match main menu bar)
+   ======================================== */
+
+/* Header bar */
+/* NOTE: don't make too dark or the .close (little "x") will not show up well */
+.modal-header,
+div.info-modal[role="dialog"] .modal-header,
+div.warning-modal[role="dialog"] .modal-header {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+ 
+/* Primary button in modal boxes */
+.modal-footer .btn-info, 
+.modal-footer .btn-warning, 
+.modal-body .panel-footer .btn-info {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.modal-footer .btn-info:hover, 
+.modal-footer .btn-warning:hover,
+.modal-footer .btn-info:focus, 
+.modal-footer .btn-warning:focus,
+.modal-footer .btn-info:active, 
+.modal-footer .btn-warning:active {
+  background-color: var(--primary-hover) !important;
+}
+ 
+/* Data entry box on modal forms */
+.modal-body .form-control:focus { 
+  border-color: var(--primary-color);
+}
+ 
+/* Secondary option (usually Cancel) on some modal boxes
+  Sometimes is colored link, sometimes just gray button; this
+  is for colored link; gray button left alone since neutral */
+.modal-body .panel-footer .btn-link:hover, 
+.modal-body .panel-footer .btn-link:focus,
+.modal-footer .btn-link:hover, 
+.modal-footer .btn-link:focus {
+  color: var(--primary-color) !important;
+}
+ 
+/* Sub headers in modal boxes */
+.modal-content .panel-heading .nav-tabs > li > a,
+.modal-content .panel-heading .nav-tabs > li.active > a,
+.modal-content .panel-heading .nav-tabs > li.active {
+  color: var(--primary-color) !important;
+}
+
+.modal-content .panel-heading .nav-tabs > li > a:hover,
+.modal-content .panel-heading .nav-tabs > li.active > a:hover,
+.modal-content .panel-heading .nav-tabs > li.active > a:focus {
+  color: var(--primary-hover) !important;
+}
+ 
+/* Drop-down list boxes on modal forms */
+.modal-content .dropdown-menu > li > a:hover,
+.modal-content .dropdown-menu > li > a:focus,
+.modal-content .dropdown-menu > li.active > a,
+.modal-content .dropdown-menu > li.active > a:hover,
+.modal-content .dropdown-menu > li.active > a:focus {
+  background-color: var(--primary-color) !important;
+}
+ 
+/* Global setting: text-info links when hovered */
+a.text-info:hover {
+  color: var(--secondary-hover) !important;
+}
+ 
+/* Alert Definition-> New; footer bar */
+div.footer-action-bar {
+  background-color: var(--light-gray-alt) !important;
+}
+
+/* Access Review Identity List */
+.certification .entity-list-panel .cert-id-list .active {
+  background-color: var(--secondary-color) !important;
+}
+
+.certification .entity-list-panel .cert-id-list > tbody > tr:focus,
+.certification .entity-list-panel .cert-id-list > tbody > tr:hover {
+  background-color: var(--secondary-color) !important;
+}
+ 
+#bodyDivFooter, .footerMessageDiv {
+  background-color: var(--primary-color) !important;  
+  color: var(--white) !important;            
+}
+
+/* ========================================
+   Custom Angular / SailPoint States for IIQ 8.5
+   ======================================== */
+
+/* Switch toggles (checkbox inputs styled as switches) */
+label.switch input[type="checkbox"]:checked + span {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+label.switch input[type="checkbox"]:focus + span {
+  box-shadow: var(--focus-ring) !important;
+}
+
+/* Rapid Setup aside tabs */
+aside.tabflow-tabs .nav .onboard {
+  background-color: var(--light-gray) !important;
+  color: var(--gray-color) !important;
+}
+
+aside.tabflow-tabs .nav .onboard.active,
+aside.tabflow-tabs .nav .onboard:hover,
+aside.tabflow-tabs .nav .onboard:focus {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+/* Application name badge */
+span.badge {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+/* Create button focus */
+#createClientBtn:focus,
+#createClientBtn:hover {
+  border-color: var(--secondary-color) !important;
+  box-shadow: var(--focus-ring) !important;
+  outline: none !important;
+}
+
+/* Nav tabs focus/active */
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+  border-color: var(--secondary-color) !important;
+  box-shadow: var(--focus-ring) !important;
+  outline: none !important;
+}
+
+.nav-tabs .nav-link.active {
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.btn-group.sub-nav .btn.nav-item {
+  color: var(--gray-color) !important;
+  background-color: var(--light-gray) !important;
+  border-color: var(--gray-color) !important;
+}
+
+/* Active tab */
+.btn-group.sub-nav .btn.nav-item.active {
+  color: var(--white) !important;
+  background-color: var(--primary-color) !important; 
+  border-color: var(--primary-color) !important;
+}
+
+/* Hover state for inactive */
+.btn-group.sub-nav .btn.nav-item:not(.active):hover {
+  color: var(--white) !important;
+  background-color: var(--gray-color) !important;
+  border-color: var(--gray-color) !important;
+}
+
+/* Inactive tab text */
+.btn-group.sub-nav .btn.nav-item uib-tab-heading,
+.btn-group.sub-nav .btn.nav-item uib-tab-heading span {
+  color: var(--gray-color) !important;
+  border-color: var(--gray-color) !important;
+}
+
+/* Active tab */
+.btn-group.sub-nav .btn.nav-item.active uib-tab-heading,
+.btn-group.sub-nav .btn.nav-item.active uib-tab-heading span {
+  color: var(--white) !important;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Hover state for inactive */
+.btn-group.sub-nav .btn.nav-item:not(.active):hover uib-tab-heading,
+.btn-group.sub-nav .btn.nav-item:not(.active):hover uib-tab-heading span {
+  color: var(--white) !important;
+  border-color: var(--gray-color) !important;
+}
+
+/* Override focus style for typeahead input */
+.typeahead-component .form-control:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--focus-ring) !important;
+  outline: none !important;
+}
+
+/* Override focus style for the typeahead dropdown button */
+.typeahead-component .typeahead-button:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--focus-ring) !important;
+  outline: none !important;
+}
+
+/* ========================================
+   COMPLEX DROPDOWN MENU OVERRIDES
+   All specific selectors preserved for SailPoint's complex DOM
+   ======================================== */
+
+#accessSearchTypeButtonKeywordMenu a:hover {
+  color: var(--white) !important;
+}
+
+/* For the active/selected item inside the dropdown */
+#accessSearchTypeButtonKeywordMenu li.active > a,
+#accessSearchTypeButtonKeywordMenu li.active > a:focus,
+#accessSearchTypeButtonKeywordMenu li.active > a:hover {
+  color: var(--white) !important;
+}
+
+/* Override text color for a elements with role="menuitem" */
+ul.dropdown-menu li[role="presentation"] > a[role="menuitem"],
+ul.dropdown-menu li[role="presentation"] > a[role="menuitem"]:hover,
+ul.dropdown-menu li[role="presentation"] > a[role="menuitem"]:focus {
+    color: var(--white) !important;
+}
+
+/* Override hover and active background color */
+.nav-primary .nav > li > a:hover,
+.nav-primary .nav > li.active > a {
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+}
+
+#page-size-dropdown-toggle-menu-environmentMonitoringHostsColumns a[role="menuitem"] {
+    color: var(--primary-color) !important;
+}
+
+#page-size-dropdown-toggle-menu-environmentMonitoringHostsColumns a[role="menuitem"]:hover {
+    color: var(--white) !important;
+}
+
+ul.add-column-dropdown-menu li[role="presentation"] > a[role="menuitem"],
+ul.add-column-dropdown-menu li[role="presentation"] > a[role="menuitem"] span {
+    color: var(--primary-color) !important;
+}
+
+/* Workitem list */
+ul.dropdown-menu.text-left a.dropdown-item[role="menuitem"],
+ul.dropdown-menu.text-left a.dropdown-item[role="menuitem"] span {
+    color: var(--secondary-hover) !important;
+}
+
+ul.dropdown-menu.text-left a.dropdown-item[role="menuitem"]:hover,
+ul.dropdown-menu.text-left a.dropdown-item[role="menuitem"] span:hover{
+    color: var(--white) !important;
+}
+
+ul.dropdown-menu.text-left li:hover > a.dropdown-item span[role="presentation"] {
+    color: var(--white) !important;
+}
+
+/* Force hover white text on Add Card / Add Widget panels */
+#editQuickLinksDivAddDiv .panel-body:hover .card-title,
+#editWidgetsDivAddDiv .panel-body:hover .card-title {
+    color: var(--white) !important;
+}
+
+#editQuickLinksDivAddDiv .panel-body:hover .card-title i,
+#editWidgetsDivAddDiv .panel-body:hover .card-title i {
+    color: var(--white) !important;
+}
+
+/* Make the anchor itself take the same background and force white text for the anchor and any children */
+ul.dropdown-menu.dropdown-toggle.dropdown-menu-right li:not(.divider):hover > a,
+ul.dropdown-menu.dropdown-toggle.dropdown-menu-right li:not(.divider):focus-within > a,
+ul.dropdown-menu.dropdown-toggle.dropdown-menu-right li:not(.divider):hover > a *,
+ul.dropdown-menu.dropdown-toggle.dropdown-menu-right li:not(.divider):focus-within > a * {
+  background-color: var(--secondary-color) !important;
+  color: var(--white) !important;
+}
+
+/* And only for dropdowns that have no id but match this exact structure */
+ul.dropdown-menu.dropdown-toggle.dropdown-menu-right li > a {
+  color: var(--secondary-color) !important;
+}
+
+ul.dropdown-menu.dropdown-toggle.dropdown-menu-right li:hover > a {
+  color: var(--white) !important;
+}
+
+/* Change text color for all <a> inside the specific dropdown */
+#entityFilterBuilderItem0OperationSelectorMenu li > a {
+  color: var(--secondary-color) !important;
+}
+
+#entityFilterBuilderItem0OperationSelectorMenu li:hover > a {
+  color: var(--white) !important;
+}
+
+/* Default text color for <a> inside this very specific dropdown */
+ul.dropdown-menu.dropdown-menu-right[role="menu"] 
+  > li.ng-scope[role="presentation"] 
+  > a.ng-binding[role="menuitem"] {
+    color: var(--secondary-color) !important;
+}
+
+/* On hover: li background and a text color */
+ul.dropdown-menu.dropdown-menu-right[role="menu"] 
+  > li.ng-scope[role="presentation"]:hover, 
+ul.dropdown-menu.dropdown-menu-right[role="menu"] 
+  > li.ng-scope[role="presentation"]:hover > a.ng-binding[role="menuitem"],
+ul.dropdown-menu.dropdown-menu-right[role="menu"] 
+  > li.ng-scope[role="presentation"]:hover > a.ng-binding[role="menuitem"] * {
+    background-color: var(--secondary-color) !important;
+    color: var(--white) !important;
+}
+
+/* Default text color for AM/PM dropdown links */
+ul.dropdown-menu[role="menu"] 
+  > li.ng-scope[role="presentation"] 
+  > a.ng-binding[role="menuitem"] {
+    color: var(--secondary-color) !important;
+}
+
+/* Hover effect: green background + white text */
+ul.dropdown-menu[role="menu"] 
+  > li.ng-scope[role="presentation"]:hover,
+ul.dropdown-menu[role="menu"] 
+  > li.ng-scope[role="presentation"]:hover > a.ng-binding[role="menuitem"],
+ul.dropdown-menu[role="menu"] 
+  > li.ng-scope[role="presentation"]:hover > a.ng-binding[role="menuitem"] * {
+    background-color: var(--secondary-color) !important;
+    color: var(--white) !important;
+}
+
+span.label.font-normal.ng-binding {
+  background-color: var(--primary-color) !important;
+}
+
+/* Style the upload button text */
+#uploadLinkButton {
+  color: var(--primary-color) !important;
+}
+
+#page-size-dropdown-toggle-menu li a span {
+  color: var(--primary-color) !important;
+}
+
+#page-size-dropdown-toggle-menu li:hover a span {
+  color: var(--white) !important;
+}
+
+/* Sort By Menu Dropdown */
+ul[aria-labelledby="sortByMenuBtn"].dropdown-menu li > a.ng-binding {
+  color: var(--secondary-color) !important;
+}
+
+ul[aria-labelledby="sortByMenuBtn"].dropdown-menu li > a.ng-binding:hover {
+  color: var(--white) !important;
+}
+
+/* ========================================
+   ACCESS HISTORY SECTION - All Preserved
+   ======================================== */
+
+/* Header Section */
+#accessHistoryHeader > div > div.col-xs-10.col-sm-8 > h1 {
+  color: var(--primary-color) !important;
+}
+
+#accessHistoryProfileBtn > span,
+#accessHistoryViewExportBtn > span {
+  color: var(--primary-color) !important;
+}
+
+#accessHistoryProfileBtn,
+#accessHistoryViewExportBtn {
+  border-color: var(--primary-color) !important;
+}
+
+#accessHistoryProfileBtn:hover,
+#accessHistoryViewExportBtn:hover {
+  background-color: var(--primary-hover) !important;
+}
+
+#accessHistoryProfileBtn:hover span,
+#accessHistoryViewExportBtn:hover span {
+  color: var(--white) !important;
+}
+
+/* White Buttons - Consolidated for better maintainability */
+button.btn.btn-white,
+button.btn.btn-white.btn-lg.icon-btn.btn-block,
+button.btn.btn-white.btn-lg.icon-btn.btn-block.event-filter-btn {
+  border-color: var(--secondary-color) !important;
+}
+
+button.btn.btn-white i,
+button.btn.btn-white.btn-lg.icon-btn.btn-block i,
+button.btn.btn-white.btn-lg.icon-btn.btn-block.event-filter-btn i {
+  color: var(--secondary-color) !important;
+}
+
+/* Specific event timeline filter button */
+#accessHistoryEventTimeline > sp-event-timeline > div.row.event-timeline-header > div.event-filter-btn.filter-btn.col-xs-1.pull-right > button {
+  border-color: var(--primary-color) !important;
+}
+
+#accessHistoryEventTimeline > sp-event-timeline > div.row.event-timeline-header > div.event-filter-btn.filter-btn.col-xs-1.pull-right > button > i {
+  color: var(--primary-color) !important;
+}
+
+/* Search Input */
+#identitySearchListText {
+  border-color: var(--primary-color) !important;
+}
+
+/* Identity List Active State */
+li.list-group-item.active a.identity-list span.identity-list-name,
+li.list-group-item.active a.identity-list span.email {
+  color: var(--primary-color) !important;
+}
+
+#accessHistoryIdentitySearch > div > sp-identity-search-list > div.row.search-results > div > sp-loading-mask > ul > li {
+  border-left-color: var(--primary-color) !important;
+}
+
+li.list-group-item.active.ng-star-inserted:hover a.identity-list span.identity-list-name,
+li.list-group-item.active.ng-star-inserted:hover a.identity-list span.email {
+  color: var(--gray-color) !important;
+}
+
+/* Toggle Switches */
+div[role="switch"].toggle {
+  border-color: var(--primary-color) !important;
+}
+
+div[role="switch"].toggle .toggle-label .sp-mode-name-unselected-color {
+  color: var(--primary-color) !important;
+}
+
+div[role="switch"].toggle button.toggle-input.btn-rounded {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+/* Timeline Dots - Preserved original logic */
+.dot-blue {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.dot-blue:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+.carousel-dot-selected,
+.dot-selected {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/* Radio Group Toggle */
+div[role="radiogroup"].toggle {
+  border: var(--primary-color) !important;
+}
+
+div[role="radiogroup"].toggle label {
+  color: var(--primary-color) !important;
+}
+
+div[role="radiogroup"].toggle input[type="radio"][aria-checked="true"] + label {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+/* Calendar Selected State */
+.mat-calendar-body-cell-content.mat-calendar-body-selected {
+  background-color: var(--primary-color) !important;
+}
+
+/* Secondary Buttons - Consolidated for maintainability */
+.btn.btn-secondary.btn-rounded.event-clear-button,
+.btn.btn-secondary.btn-rounded.event-cancel-button,
+.btn.btn-white.btn-sm.filter-button-left,
+.btn.btn-white.btn-sm.filter-button-left.m-r-xs,
+.btn.btn-s-sm.btn-rounded.btn-info-white,
+.btn.btn-s-sm.btn-rounded.btn-info-white.m-r-xs {
+  border-color: var(--secondary-color) !important;
+  color: var(--secondary-color) !important;
+}
+
+.btn.btn-secondary.btn-rounded.event-clear-button:hover,
+.btn.btn-secondary.btn-rounded.event-cancel-button:hover,
+.btn.btn-white.btn-sm.filter-button-left:hover,
+.btn.btn-white.btn-sm.filter-button-left.m-r-xs:hover,
+.btn.btn-s-sm.btn-rounded.btn-info-white:hover,
+.btn.btn-s-sm.btn-rounded.btn-info-white.m-r-xs:hover {
+  background-color: var(--light-gray) !important;
+}
+
+/* Input Focus States for Access History */
+input.ng-pristine:focus,
+input.ng-valid:focus,
+input.ng-invalid:focus,
+input.ng-touched:focus {
+  border-color: var(--primary-hover) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ========================================
+   UTILITY CLASSES FOR FUTURE USE
+   ======================================== */
+
+/* Color Utilities */
+.text-primary-custom {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary-custom {
+  background-color: var(--primary-color) !important;
+}
+
+.text-secondary-custom {
+  color: var(--secondary-color) !important;
+}
+
+.bg-secondary-custom {
+  background-color: var(--secondary-color) !important;
+}
+
+/* Border Utilities */
+.border-primary-custom {
+  border-color: var(--primary-color) !important;
+}
+
+.border-secondary-custom {
+  border-color: var(--secondary-color) !important;
+}
+
+/* Hover Utilities */
+.hover-primary-custom:hover {
+  background-color: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+.hover-secondary-custom:hover {
+  background-color: var(--secondary-color) !important;
+  color: var(--white) !important;
+}
+
+/* Focus Utilities */
+.focus-primary-custom:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: var(--focus-ring) !important;
+  outline: none !important;
+}
+
+.focus-secondary-custom:focus {
+  border-color: var(--secondary-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(89, 89, 89, 0.25) !important;
+  outline: none !important;
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* GPU optimization for frequently animated elements */
+.dot-blue,
+.carousel-dot-selected,
+.dot-selected,
+button.btn.btn-white,
+div[role="switch"].toggle button.toggle-input.btn-rounded,
+.btn:hover,
+.dropdown-menu > li > a:hover {
+  will-change: transform, background-color;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-color: #1a7a4a;
+    --primary-hover: #0f5a33;
+    --secondary-color: #000000;
+    --secondary-hover: #333333;
+    --focus-ring: 0 0 0 0.2rem #ffff00;
+    --focus-ring-strong: 0 0 0 0.2rem #ffff00;
+  }
+}
+
+/* Focus visible support for better keyboard navigation */
+@supports selector(:focus-visible) {
+  .btn:focus:not(:focus-visible),
+  input:focus:not(:focus-visible),
+  select:focus:not(:focus-visible),
+  textarea:focus:not(:focus-visible) {
+    box-shadow: none !important;
+    border-color: var(--gray-color) !important;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN IMPROVEMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Mobile-specific button sizing */
+  #accessHistoryProfileBtn,
+  #accessHistoryViewExportBtn {
+    width: 100%;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  /* Adjust header logo for mobile */
+  .header .nav-brand img {
+    max-height: 32px !important;
+  }
+  
+  /* Mobile topbar adjustments */
+  .topbar img {
+    max-width: 100px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Small mobile header adjustments */
+  #accessHistoryHeader > div > div.col-xs-10.col-sm-8 > h1 {
+    font-size: 1.25rem !important;
+  }
+  
+  .header .nav-brand img {
+    max-height: 28px !important;
+  }
+  
+  .topbar img {
+    max-width: 80px !important;
+  }
+}
