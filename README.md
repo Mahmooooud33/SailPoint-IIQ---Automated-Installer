@@ -79,7 +79,7 @@ Place the following files in the C:\InstallerFiles directory (default path):
 Open PowerShell as Administrator and run:
    ```powershell
     Set-ExecutionPolicy Bypass -Scope Process -Force
-    .\install-iiq.ps1
+    .\install-iiq-full.ps1
 
 4. **Follow Logs**
 Installation logs are stored in:
