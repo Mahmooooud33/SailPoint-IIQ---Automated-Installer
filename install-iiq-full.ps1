@@ -108,6 +108,27 @@ function Wait-ForService {
     throw "Service '$ServiceName' failed to start within $TimeoutSeconds seconds"
 }
 
+function Wait-ForServiceStop {
+    param(
+        [string]$ServiceName,
+        [int]$TimeoutSeconds = 60
+    )
+    
+    Write-LogMessage "Waiting for service '$ServiceName' to stop..." "INFO"
+    
+    $timeout = (Get-Date).AddSeconds($TimeoutSeconds)
+    do {
+        $service = Get-Service -Name $ServiceName -ErrorAction SilentlyContinue
+        if ($service -and $service.Status -eq "Stopped") {
+            Write-LogMessage "Service '$ServiceName' has stopped" "SUCCESS"
+            return $true
+        }
+        Start-Sleep -Seconds 2
+    } while ((Get-Date) -lt $timeout)
+    
+    throw "Service '$ServiceName' failed to stop within $TimeoutSeconds seconds"
+}
+
 function Test-SqlConnection {
     param(
         [string]$ServerInstance,
@@ -185,18 +206,54 @@ Test-FileExists $TomcatZip "Tomcat ZIP"
 # Clean old Tomcat if exists
 if (Test-Path "$TomcatRoot\tomcat") {
     Write-LogMessage "Removing old Tomcat installation..." "WARN"
-    
+
+    # Stop Tomcat service if it exists
     $tomcatService = Get-Service -Name "Tomcat9" -ErrorAction SilentlyContinue
     if ($tomcatService) {
+        Write-LogMessage "Stopping existing Tomcat9 service..." "INFO"
         Stop-Service -Name "Tomcat9" -Force -ErrorAction SilentlyContinue
+        Wait-ForServiceStop -ServiceName "Tomcat9" -TimeoutSeconds 30
     }
-    
-    Remove-Item -Recurse -Force "$TomcatRoot\tomcat" -ErrorAction SilentlyContinue
+
+    # Kill any leftover Tomcat/Java processes that might lock files
+    Get-Process "tomcat9","java" -ErrorAction SilentlyContinue | ForEach-Object {
+        Write-LogMessage "Killing process $($_.ProcessName) (PID $($_.Id))" "WARN"
+        Stop-Process -Id $_.Id -Force
+    }
+
+    # Retry folder deletion until success or timeout
+    $maxWait = 30
+    $elapsed = 0
+    do {
+        try {
+            if (Test-Path "$TomcatRoot\tomcat") {
+                Remove-Item -Recurse -Force "$TomcatRoot\tomcat" -ErrorAction Stop
+            }
+        } catch {
+            Write-LogMessage "Retrying delete: $($_.Exception.Message)" "WARN"
+        }
+
+        if (-not (Test-Path "$TomcatRoot\tomcat")) {
+            Write-LogMessage "Tomcat folder removed successfully" "SUCCESS"
+            break
+        }
+
+        Write-LogMessage "Waiting for Tomcat folder to be removed..." "INFO"
+        Start-Sleep -Seconds 1
+        $elapsed++
+    } while ($elapsed -lt $maxWait)
+
+    if (Test-Path "$TomcatRoot\tomcat") {
+        throw "Failed to remove old Tomcat directory after $maxWait seconds. Aborting installation."
+    }
 }
 
+Write-LogMessage "Start Install..." "INFO"
 Expand-Archive -Path $TomcatZip -DestinationPath $TomcatRoot -Force
 Rename-Item "$TomcatRoot\apache-tomcat-9.0.109" "tomcat" -Force
 
+
+Write-LogMessage "Start Configuration..." "INFO"
 # Set Env Vars
 [System.Environment]::SetEnvironmentVariable("CATALINA_HOME", $TomcatPath, "Machine")
 [System.Environment]::SetEnvironmentVariable("JAVA_HOME", $JavaPath, "Machine")
@@ -648,6 +705,7 @@ Write-LogMessage "Cleaning up existing IdentityIQ databases..." "INFO"
 
 # Pre-cleanup: Drop old DBs + logins if they exist
 $CleanupFile = "$InstallerPath\cleanup_identityiq.sql"
+
 $CleanupSql = @"
 -- Set databases to single user mode and drop them
 DECLARE @DatabaseName NVARCHAR(128)
