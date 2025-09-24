@@ -168,11 +168,12 @@ a:hover, a:focus {
  
 /* Size the topbar logo images */
 .topbar img {
-  max-width: 130px !important;
+  max-width: 100px !important;
 }
 
 /* Make header height match image height */
-header.topbar {
+/* Uncomment it if needed */
+/* header.topbar {
   padding: 0 !important; 
 }
 
@@ -181,7 +182,7 @@ header.topbar .row {
   padding: 0 !important;
   align-items: center;        
   display: flex;             
-}
+} */
  
 /* Main Menu header bar in Desktop body pages */
 .bg-primary { 
