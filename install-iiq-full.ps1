@@ -16,7 +16,7 @@ $JdbcDriver    = "$InstallerPath\mssql-jdbc-9.4.1.jre16.jar"
 $EncPasswords  = @{}
 $SqlExe        = "SQL2022-SSEI-Expr.exe"   # Online installer
 $SqlSetupExe   = "SQLEXPR_x64_ENU.exe"     # Offline installer
-$SsmsExe       = "vs_SSMS.exe"
+$SsmsInstaller = "$InstallerPath\vs_SSMS.exe"
 $SqlSaPassword = "P@ssw0rd@#123"
 
 # Tomcat Memory Configuration
@@ -501,11 +501,9 @@ $ssmsExe = Get-ChildItem $possiblePaths -Recurse -Include "ssms.exe" -ErrorActio
 if ($ssmsExe) {
     # Write-LogMessage "SSMS is already installed at: $($ssmsExe.FullName)" "SUCCESS"
     Write-LogMessage "SSMS is already installed" "SUCCESS"
-}
-else {
+} else {
     Write-LogMessage "SSMS not found, attempting installation..." "INFO"
 
-    $SsmsInstaller = Join-Path $InstallerPath $SsmsExe
     if (!(Test-Path $SsmsInstaller)) { 
         Write-LogMessage "SSMS installer not found, skipping: $SsmsInstaller" "WARN"
     } else {
@@ -513,20 +511,6 @@ else {
         Write-LogMessage "SSMS installation completed." "SUCCESS"
     }
 }
-
-# ------------------------------
-# 4.1 Ensure SQLCMD is in PATH
-# ------------------------------
-# $SqlCmdPath = "C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn"
-# if (Test-Path $SqlCmdPath) {
-#     $envPath = [System.Environment]::GetEnvironmentVariable("Path", "Machine")
-#     if ($envPath -notlike "*$SqlCmdPath*") {
-#         [System.Environment]::SetEnvironmentVariable("Path", $envPath + ";$SqlCmdPath", "Machine")
-#     }
-#     $env:Path += ";$SqlCmdPath"
-# } else {
-#     Write-Warning "SQLCMD tools not found. Ensure SQL Server Client Tools installed!"
-# }
 
 # ------------------------------
 # 5. Deploy SailPoint IIQ
