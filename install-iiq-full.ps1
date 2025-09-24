@@ -5,6 +5,7 @@
 
 # ----- Configurations -----
 $InstallerPath = "C:\InstallerFiles"
+$JdkInstaller =  "$InstallerPath\jdk-17.0.15_windows-x64_bin.exe"
 $JavaPath      = "C:\Program Files\Java\jdk-17"
 $TomcatRoot    = "C:\SailPoint"
 $TomcatPath    = "$TomcatRoot\tomcat"
@@ -159,7 +160,6 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 # 1. Install JDK 17
 # ------------------------------
 Write-LogMessage "Installing JDK 17..." "INFO"
-$JdkInstaller = Join-Path $InstallerPath "jdk-17.0.15_windows-x64_bin.exe"
 Test-FileExists $JdkInstaller "JDK installer"
 
 Start-Process -FilePath $JdkInstaller -ArgumentList "/s" -Wait -NoNewWindow
@@ -663,6 +663,7 @@ if ($SqlService.Status -ne "Running") {
 Write-LogMessage "Cleaning up existing IdentityIQ databases..." "INFO"
 
 # Pre-cleanup: Drop old DBs + logins if they exist
+$CleanupFile = "$InstallerPath\cleanup_identityiq.sql"
 $CleanupSql = @"
 -- Set databases to single user mode and drop them
 DECLARE @DatabaseName NVARCHAR(128)
@@ -707,7 +708,6 @@ IF EXISTS (SELECT name FROM sys.sql_logins WHERE name = N'identityiqPlugin')
 PRINT 'Database cleanup completed successfully'
 "@
 
-$CleanupFile = "$InstallerPath\cleanup_identityiq.sql"
 Set-Content -Path $CleanupFile -Value $CleanupSql -Encoding UTF8
 
 # Execute cleanup with connection preference
