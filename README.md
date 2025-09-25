@@ -68,12 +68,12 @@ The script is designed for **one-click deployment**, ensuring consistent setup f
    
 2. **Prepare Installers**
 Place the following files in the C:\InstallerFiles directory (default path):
-  - jdk-17.0.xx_windows-x64_bin.exe
-  - apache-tomcat-9.x.xxx-windows-x64.zip
-  - identityiq-x.x.zip
-  - mssql-jdbc-9.4.1.jre16.jar
-  - SQL20xx-SSEI-Expr.exe (or SQLEXPR_x64_ENU.exe for offline)
-  - vs_SSMS.exe
+     - [jdk-17.0.xx_windows-x64_bin.exe](https://www.oracle.com/java/technologies/javase/jdk17-0-13-later-archive-downloads.html)
+     - [apache-tomcat-9.x.xxx-windows-x64.zip](https://tomcat.apache.org/download-90.cgi)
+     - [identityiq-x.x.zip](https://community.sailpoint.com/t5/IdentityIQ-Server-Software/ct-p/IdentityIQ)
+     - [mssql-jdbc-9.4.1.jre16.jar](https://github.com/Mahmooooud33/SailPoint-IIQ---Automated-Installer/blob/master/mssql-jdbc-9.4.1.jre16.jar)
+     - [SQL20xx-SSEI-Expr.exe](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+     - [vs_SSMS.exe](https://learn.microsoft.com/en-us/ssms/install/install)
 
 3. **Run the Installer**
 Open PowerShell as Administrator and run:
